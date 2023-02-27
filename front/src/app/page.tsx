@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import { Inter } from 'next/font/google'
 import styles from './page.module.css'
+import FormularioContacto from '@/shared/components/form_contact/form-contact'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -8,6 +9,7 @@ export default function Home() {
   return (
     <main className={styles.main}>
       <div className={styles.description}>
+      <FormularioContacto></FormularioContacto>
         <p>
           Get started by editing&nbsp;
           <code className={styles.code}>src/app/page.tsx</code>
@@ -85,7 +87,9 @@ export default function Home() {
             Instantly deploy your Next.js site to a shareable URL with Vercel.
           </p>
         </a>
+        
       </div>
+      
     </main>
   )
 }
