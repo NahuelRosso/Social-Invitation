@@ -1,7 +1,9 @@
 import Image from 'next/image'
 import { Inter } from 'next/font/google'
 import styles from './page.module.css'
+import Invitation from '@/shared/components/card/card'
 import FormularioContacto from '@/shared/components/form_contact/form-contact'
+
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -89,7 +91,6 @@ export default function Home() {
         </a>
         
       </div>
-      
     </main>
   )
 }
