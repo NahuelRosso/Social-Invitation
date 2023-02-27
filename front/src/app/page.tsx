@@ -1,6 +1,8 @@
 import Image from 'next/image'
 import { Inter } from 'next/font/google'
 import styles from './page.module.css'
+import Invitation from '@/shared/components/card/card'
+
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -86,6 +88,7 @@ export default function Home() {
           </p>
         </a>
       </div>
+      <Invitation guestName={'Nicolas'} date={''} time={0} hostName={'Bodega Mendoza'}></Invitation>
     </main>
   )
 }
