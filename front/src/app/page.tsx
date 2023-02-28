@@ -1,91 +1,104 @@
-import Image from 'next/image'
-import { Inter } from 'next/font/google'
-import styles from './page.module.css'
+'use client'
 
-const inter = Inter({ subsets: ['latin'] })
+import AccessTimeFilledIcon from '@mui/icons-material/AccessTimeFilled';
+import ThumbUpAltIcon from '@mui/icons-material/ThumbUpAlt';
+import CreditCardIcon from '@mui/icons-material/CreditCard';
+import FmdGoodIcon from '@mui/icons-material/FmdGood';
+import { useState } from "react";
+import IFooter, { BottomItem } from "@/shared/components/footer/footer";
+import AlertCalendar from "@/shared/components/dialog/dialogCalendar";
+import AlertDialog from "@/shared/components/dialog/dialog";
+import AlertMercadoPago from "@/shared/components/dialog/dialogMercadoPago";
+import AlertLocation from "@/shared/components/dialog/dialogLocation";
 
 export default function Home() {
+
+  const [openHorario,setOpenHorario] = useState(false)
+  const [openAsistencia,setOpenAsistencia] = useState(false)
+  const [openPagar,setOpenPagar] = useState(false)
+  const [openUbicacion,setOpenUbicacion] = useState(false)
+
+  const items:BottomItem[] = [{
+    icon:<AccessTimeFilledIcon />,
+    label:"Horario del evento",
+    action:()=>{ 
+      setOpenHorario(true)
+      return true;
+    }
+},{
+    icon:<ThumbUpAltIcon />,
+    label:"Confirmar asistencia",
+    action:()=>{
+      setOpenAsistencia(true)
+      return true;
+    }
+},{
+    icon:<CreditCardIcon />,
+    label:"Pagar",
+    action:()=>{
+      setOpenPagar(true)
+      return true;
+    }
+},{
+    icon:<FmdGoodIcon />,
+    label:"Ubicación del evento",
+    action:()=>{
+      setOpenUbicacion(true)
+      return true;
+    }
+  }]
+
+  const tilteSlider = ['INVITACIONES WEB']
+  const LogoSocial ='https://socialup.com.ar/wp-content/uploads/2021/11/logo-blanco-300x159.png'
+  const imagesSlider = ['https://harboursideplace.com/wp-content/uploads/2016/06/Zootopia-1000px-x-500px.jpg','https://harboursideplace.com/wp-content/uploads/2016/12/Winter-Blues-Sip-Shop-at-Glitzy-Girl-1000px-x-500px.jpg','https://harboursideplace.com/wp-content/uploads/2016/07/Classic-Car-Show-1000px-x-500px.jpg']
+  
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
+    <main>
+      <div>
+        <IFooter bottomItems={items}></IFooter>
+        <AlertCalendar  open={openHorario} handleClose={()=> {
+         setOpenHorario(false)
+         return true;
+        } } handleAgree={()=>{
+          setOpenHorario(false)
+          return true;
+        } } handleDisagree={()=>{
+          setOpenHorario(false)
+          return true;
+        } }/>
+        <AlertDialog  open={openAsistencia} handleClose={()=> {
+         setOpenAsistencia(false)
+         return true;
+        } } handleAgree={()=>{
+          setOpenAsistencia(false)
+          return true;
+        } } handleDisagree={()=>{
+          setOpenAsistencia(false)
+          return true;
+        } }/>
+        <AlertMercadoPago  open={openPagar} handleClose={()=> {
+         setOpenPagar(false)
+         return true;
+        } } handleAgree={()=>{
+          setOpenPagar(false)
+          return true;
+        } } handleDisagree={()=>{
+          setOpenPagar(false)
+          return true;
+        } }/>
+        <AlertLocation  open={openUbicacion} handleClose={()=> {
+         setOpenUbicacion(false)
+         return true;
+        } } handleAgree={()=>{
+          setOpenUbicacion(false)
+          return true;
+        } } handleDisagree={()=>{
+          setOpenUbicacion(false)
+          return true;
+        } }
+        locationAddress="Rio Tercero"
         />
-        <div className={styles.thirteen}>
-          <Image src="/thirteen.svg" alt="13" width={40} height={31} priority />
-        </div>
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://beta.nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={inter.className}>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={inter.className}>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>Explore the Next.js 13 playground.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={inter.className}>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
       </div>
     </main>
-  )
+  );
 }
