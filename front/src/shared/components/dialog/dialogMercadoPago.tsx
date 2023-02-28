@@ -30,10 +30,10 @@ export default function DialogMercadoPago(props: propsDialogMercadoPago) {
         <DialogContentText id="alert-dialog-description">
             Te dejamos el link de MercadoPago
         </DialogContentText>
-          <Grid >
-            <Grid>
+          <Grid container justifyContent={"center"}>
+            <Grid container justifyContent={"center"} item xs={12} md={6}>
               <a href={"https://mpago.la/2SQP6Up"}>
-                <img src="C:\Users\Usuario\OneDrive\Escritorio\Lucas\Invitaciones\Social-Invitation" alt="Icono de MercadoPago" />
+                <img src="C:\Users\Usuario\Desktop\mercadopago-nuevo-logo-12208FF614-seeklogo.com.png" alt="Icono de MercadoPago"/>
               </a>
             </Grid>
           </Grid>
