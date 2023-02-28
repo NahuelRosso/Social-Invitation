@@ -1,48 +1,107 @@
 "use client";
 
-import { useState } from "react";
+import {
+  Box,
+  Button,
+  Card,
+  Container,
+  Grid,
+  Paper,
+  TextField,
+  Typography,
+} from "@mui/material";
+import React, { useState } from "react";
 
-const FormularioContacto = () => {
+function ContactForm() {
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const [nombre, setNombre] = useState("");
-  const errorMessage = validate(nombre, email);
-  return (
-    <form
-      onSubmit={(ev) => {
-        ev.preventDefault();
+  const [message, setMessage] = useState("");
+  const [surname, setSurname] = useState("");
+  const [phone, setPhone] = useState("");
 
-        login(nombre, email);
-      }}
-    >
-      <input
-        type="text"
-        name="nombre"
-        placeholder="Nombre"
-        autoComplete="off"
-        value={nombre}
-        onChange={(ev) => setNombre(ev.target.value)}
-        
-      ></input>
-      <input
-        type="text"
-        name="email"
-        placeholder="Email"
-        autoComplete="off"
-        value={email}
-        onChange={(ev) => setEmail(ev.target.value)}
-      ></input>
-      <p>{errorMessage}</p>
-      <button type="submit">Enviar</button>
-    </form>
-  );
-};
-const login = (nombre: string, email: string) => {
-  if (nombre === "Nahuel" && email === "hola@hola.com")
-    alert("Tu consulta ha sido enviada");
-  else alert("complete los campos requeridos");
-};
-const validate = (nombre: string, email: string | string[]) => {
-    if (!nombre.toUpperCase()) return "Nombre incorrecto";
-    if (!email.includes("@")) return "Email incorrecto";
+  const handleSubmit = (event: { preventDefault: () => void }) => {
+    event.preventDefault();
+    console.log("Submitting form", name, email, message, surname);
+    // Aquí podrías enviar la información del formulario al servidor utilizando fetch o axios, por ejemplo.
   };
-export default FormularioContacto;
+
+  return (
+    <Container sx={{ mt: 9 }} maxWidth="sm">
+      <Grid
+        container
+        direction="column"
+        alignItems="center"
+        justifyContent="center"
+        sx={{ ninHeight: "100vh" }}
+      >
+        <Grid item>
+          <Paper sx={{ padding: "1.2em", borderRadius: "0.5em" }}>
+            <Typography sx={{ mt: 1, mb: 1 }} variant="h4" align="center">
+              Contáctanos
+            </Typography>
+            <Box component="form" onSubmit={handleSubmit}>
+              <TextField
+                name="name"
+                fullWidth
+                type="text"
+                label="Nombre"
+                autoComplete="off"
+                sx={{ mt: 2, mb: 1.5 }}
+                onChange={(event) => setName(event.target.value)}
+              />
+              <TextField
+                name="surname"
+                fullWidth
+                type="text"
+                label="Apellido"
+                autoComplete="off"
+                sx={{ mt: 1.5, mb: 1.5 }}
+                onChange={(event) => setSurname(event.target.value)}
+              />
+              <TextField
+                name="email"
+                fullWidth
+                type="email"
+                label="Email"
+                autoComplete="off"
+                sx={{ mt: 1.5, mb: 1.5 }}
+                onChange={(event) => setEmail(event.target.value)}
+              />
+              <TextField
+                name="phone"
+                fullWidth
+                type="text"
+                label="Teléfono"
+                autoComplete="off"
+                sx={{ mt: 1.5, mb: 1.5 }}
+                onChange={(event) => setPhone(event.target.value)}
+              />
+              
+              <TextField
+                name="message"
+                fullWidth
+                type="text"
+                label="Deje su mensaje aqui"
+                multiline
+                autoComplete="off"
+                maxRows={4}
+                sx={{ mt: 1.5, mb: 1.5 }}
+                onChange={(event) => setMessage(event.target.value)}
+              />
+              <Button
+                fullWidth
+                type="submit"
+                variant="contained"
+                sx={{ mt: 1.5, mb: 2 }}
+              >
+                Enviar
+              </Button>
+            </Box>
+          </Paper>
+        </Grid>
+      </Grid>
+    </Container>
+  );
+}
+
+export default ContactForm;
