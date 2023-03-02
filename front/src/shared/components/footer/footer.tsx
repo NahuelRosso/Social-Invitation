@@ -9,9 +9,11 @@ import ThumbUpAltIcon from '@mui/icons-material/ThumbUpAlt';
 import CreditCardIcon from '@mui/icons-material/CreditCard';
 import FmdGoodIcon from '@mui/icons-material/FmdGood';
 import AlertCalendar from "@/shared/components/footer/dialog/dialogCalendar";
-import AlertDialog from "@/shared/components/footer/dialog/dialogAsistencia";
 import AlertMercadoPago from "@/shared/components/footer/dialog/dialogMercadoPago";
 import AlertLocation from "@/shared/components/footer/dialog/dialogLocation";
+import AlertAttendance from './dialog/dialogAttendance';
+import AlertGoogleForm from './dialog/dialogForms';
+import { Link, useHref } from 'react-router-dom';
 
 export interface BottomItem{
   icon:JSX.Element,
@@ -22,10 +24,11 @@ export interface BottomItem{
 }
 
 export interface PropsIFooter {
-  ubicacion?:string,
+  ubicacion?:boolean,
   confirmacion?:boolean,
-  pago?:string,
-  calendario?:string
+  pago?:boolean,
+  calendario?:boolean,
+  googleForm?:boolean
 }
 
 function IFooter(props: PropsIFooter) { 
@@ -35,6 +38,7 @@ const [openHorario,setOpenHorario] = useState(false)
 const [openAsistencia,setOpenAsistencia] = useState(false)
 const [openPagar,setOpenPagar] = useState(false)
 const [openUbicacion,setOpenUbicacion] = useState(false)
+const [openGoogleForm,setOpenGoogleForm] = useState(false)
 
 const items:BottomItem[] = [{
   icon:<AccessTimeFilledIcon />,
@@ -68,11 +72,19 @@ const items:BottomItem[] = [{
     setOpenUbicacion(true)
     return true;
   }
+},{
+  icon:<ThumbUpAltIcon />,
+  label:"Confirmar asistencia",
+  show:props.googleForm?true:false,
+  action:()=>{
+      window.location.href="https://forms.gle/waBTaQv3rodR7fMU8"
+    return true;
+  }
 }]
 
   return (
     <>
-     <Paper sx={{ position: 'fixed', bottom: 10, left: 0, right: 0, alignContent:'center' }} elevation={5}>
+     <Paper sx={{ position:'fixed' , bottom: 0, left: 0, right: 0, alignContent:'center' }} elevation={10}>
           <BottomNavigation
             showLabels
             value={value}
@@ -99,7 +111,7 @@ const items:BottomItem[] = [{
           setOpenHorario(false)
           return true;
         } }/>
-        <AlertDialog  open={openAsistencia} handleClose={()=> {
+        <AlertAttendance  open={openAsistencia} handleClose={()=> {
          setOpenAsistencia(false)
          return true;
         } } handleAgree={()=>{
@@ -129,8 +141,18 @@ const items:BottomItem[] = [{
           setOpenUbicacion(false)
           return true;
         } }
-        locationAddress="Rio Tercero"
+        locationAddress="@-32.1558247,-64.1359941,15z"
         />
+        <AlertGoogleForm open={openGoogleForm} handleClose={()=> {
+         setOpenGoogleForm(false)
+         return true;
+        } } handleAgree={()=>{
+          setOpenGoogleForm(false)
+          return true;
+        } } handleDisagree={()=>{
+          setOpenGoogleForm(false)
+          return true;
+        } }/>
     </>     
   );
 }

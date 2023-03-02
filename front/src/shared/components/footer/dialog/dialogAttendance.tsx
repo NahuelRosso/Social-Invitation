@@ -8,14 +8,14 @@ import DialogTitle from '@mui/material/DialogTitle';
 import Box from '@mui/material/Box';
 import { CardContent, TextField } from '@mui/material';
 
-export interface actionDialog {    
+export interface IPropsDialogAttendance {    
     open:boolean
     handleClose:()=>{}
     handleAgree:()=>{}
     handleDisagree:()=>{}
  }
 
-export default function AlertDialog(props: actionDialog) {
+export default function AlertAttendance(props: IPropsDialogAttendance) {
   
   return (
     <div>

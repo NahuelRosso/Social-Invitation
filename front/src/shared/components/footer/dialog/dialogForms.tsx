@@ -2,20 +2,18 @@ import * as React from 'react';
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
-import DialogContent from '@mui/material/DialogContent';
-import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
-import { Grid, Icon, IconButton, Stack } from '@mui/material';
-import EventIcon from '@mui/icons-material/Event';
+import { Grid, IconButton } from '@mui/material';
+import DynamicFormIcon from '@mui/icons-material/DynamicForm';
 
-export interface IPropsDialogCalendar {    
+export interface IPropsAlertGoogleForm {    
     open:boolean
     handleClose:()=>{}
     handleAgree:()=>{}
     handleDisagree:()=>{}
  }
 
-export default function DialogCalendar(props: IPropsDialogCalendar) {
+export default function AlertGoogleForm(props: IPropsAlertGoogleForm) {
   
   return (
     <div>
@@ -26,23 +24,24 @@ export default function DialogCalendar(props: IPropsDialogCalendar) {
         aria-describedby="alert-dialog-description"
       >
         <DialogTitle id="alert-dialog-title">
-          {"¡Agendá la fecha en tu Google Calendar!"}
+          {"Te dejamos un formulario para que completes"}
         </DialogTitle>
         <Grid container justifyContent={"center"}>
           <Grid container justifyContent={"center"} item xs={12} md={6}>
-            <IconButton href={"https://calendar.google.com/calendar/event?action=TEMPLATE&tmeid=MTAzZjR2MHA4MnRldGRrNTFlczc0NGVzYTUgbHVjYXNndXRpZXJyZXoxOTg1QG0&tmsrc=lucasgutierrez1985%40gmail.com"}>
-                <EventIcon fontSize="large" />
+            <IconButton href={"https://forms.gle/waBTaQv3rodR7fMU8"}>
+                <DynamicFormIcon fontSize="large" />
             </IconButton>
           </Grid>
         </Grid>
         <DialogActions>
           <Button onClick={props.handleDisagree}>
-            Cancelar
+              Cancelar
+          </Button>
+          <Button onClick={props.handleAgree} autoFocus>
+              Enviar
           </Button>
         </DialogActions>
       </Dialog>
     </div>
   );
 }
-
-
