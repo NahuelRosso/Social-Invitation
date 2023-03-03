@@ -1,7 +1,12 @@
 'use client'
+import { Button } from "@mui/material";
 import React, { useRef,useState, useEffect } from "react";
+import { start } from "repl";
 
-const Counter: React.FC = () => {
+export interface Icountdown{
+date:string;
+}
+const Counter = (props:Icountdown) => {
     const [tiemerDay, stetimerDay] = useState (0);
     const [tiemerHours, stetimerHours] = useState (0);
     const [tiemerMinute, stetimerMinute] = useState (0);
@@ -10,7 +15,7 @@ const Counter: React.FC = () => {
     let interval = useRef();
 
     const startTime =() =>{
-        const countdownDate = new Date("2025-01-01T00:00:00.000Z").getTime();
+        const countdownDate = new Date(props.date).getTime();
         
         let interval = setInterval(()=>{
         console.log("ya esta")
@@ -42,6 +47,7 @@ const Counter: React.FC = () => {
         <div>
             <h1>Event:</h1>
             <p>
+                <Button>Start</Button>
                 {tiemerDay} días {tiemerHours} : {tiemerMinute} : {tiemerSeconds} 
             </p>
         </div>
