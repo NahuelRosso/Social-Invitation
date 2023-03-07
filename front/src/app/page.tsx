@@ -1,17 +1,13 @@
 'use client'
 
 import IFooter, { BottomItem } from "@/shared/components/footer/footer";
+import { Amcecis } from "pages/amcecis/amcecis";
 
 export default function Home() {
   return (
     <main>
-      <div>
-        <IFooter
-          ubicacion="Las heras 740"
-          confirmacion={true}
-          pago="link de mercado pago"
-          calendario=" "
-        ></IFooter>
+      <div >
+      <Amcecis/>
        
       </div>
     </main>
