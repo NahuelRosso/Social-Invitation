@@ -1,0 +1,23 @@
+
+@media screen and (min-width: 0px) and (max-width: 400px) {
+    .phone{
+        display: none !important;
+    }
+    .slider1{ display: none !important;}
+ 
+  }
+
+@media only screen and (min-width : 901px) {
+    .desktop{ display: none !important; }
+
+    .slider2{ display: none !important;}
+    }
+.fondo{
+    z-index: 10 ;
+    background-image: url('../../public/fondo\ web\ \(1\).png');
+    background-repeat: repeat;
+}
+.footer{
+    padding-left: 10%;
+    padding-right: 10%;
+}

@@ -82,9 +82,9 @@ const items:BottomItem[] = [{
               items[newValue].action()                
             }}
           >{
-            items.map((item:BottomItem) => {
+            items.map((item:BottomItem,i) => {
               if(item.show)
-                return <BottomNavigationAction label={item.label} icon={item.icon}/>
+                return <BottomNavigationAction key={i} label={item.label} icon={item.icon}/>
             })
           }
           </BottomNavigation>
