@@ -2,7 +2,7 @@
 import * as React from 'react';
 import BottomNavigation from '@mui/material/BottomNavigation';
 import BottomNavigationAction from '@mui/material/BottomNavigationAction';
-import { Paper } from "@mui/material";
+import { Box, Paper } from "@mui/material";
 import { useState } from 'react';
 import AccessTimeFilledIcon from '@mui/icons-material/AccessTimeFilled';
 import ThumbUpAltIcon from '@mui/icons-material/ThumbUpAlt';
@@ -72,7 +72,7 @@ const items:BottomItem[] = [{
 
   return (
     <>
-     <Paper sx={{ position: 'fixed', bottom: 10, left: 0, right: 0, alignContent:'center' }} elevation={5}>
+     <Paper sx={{ position: 'fixed', bottom: 0, left: 0, right: 0, alignContent:'center' , opacity:"1"}} elevation={10}>
           <BottomNavigation
             showLabels
             value={value}

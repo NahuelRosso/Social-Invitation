@@ -26,7 +26,7 @@ function ContactForm() {
   };
 
   return (
-    <Container sx={{ mt: 9 }} maxWidth="sm">
+    <Container sx={{ mt: 9, mb:10 }} maxWidth="sm">
       <Grid
         container
         direction="column"
