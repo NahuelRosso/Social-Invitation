@@ -1,7 +1,6 @@
 'use client'
 import { Button } from "@mui/material";
 import React, { useRef,useState, useEffect } from "react";
-import { start } from "repl";
 
 export interface Icountdown{
 date:string;
@@ -47,7 +46,7 @@ const Counter = (props:Icountdown) => {
         <div>
             <h1>Event:</h1>
             <p>
-                <Button>Start</Button>
+                <Button variant="outlined" >Start</Button>
                 {tiemerDay} días {tiemerHours} : {tiemerMinute} : {tiemerSeconds} 
             </p>
         </div>
