@@ -14,7 +14,7 @@ import Desktop from '../../public/distefano web (1).png'
 import RoomIcon from '@mui/icons-material/Room';
 import { IData, SectionEventData } from '@/shared/components/sectionEventData/sectionEventData';
 import style from './amececis.module.css'
-import footerImage from '../../public/footer wweb (2).png'
+import footerImage from '../../public/footer wweb (1).png'
 
 const datos:IData = {
   ubicacion:"Alberdi 333",
@@ -28,7 +28,7 @@ const datos:IData = {
     button:true,
     urlButton:'https://www.google.com.ar/maps/place/Sal%C3%B3n+de+Fiestas+y+Eventos+1929/@-32.1768803,-64.1078752,17z/data=!3m1!4b1!4m6!3m5!1s0x95cd6f215d353921:0x87899bef8cf94b29!8m2!3d-32.1768849!4d-64.1056865!16s%2Fg%2F11gbwlfzhk',
     bgColor:'#d80032',
-    bgcButton:'#444242',
+    bgcButton:'#ffffff',
     textButton:'Ver en el mapa'
   },{
     image:Slider2,
@@ -40,18 +40,6 @@ const datos:IData = {
     bgColor:'#d80032',
     bgcButton:'#444242',
     textButton:''
-
-  },{
-    image:Slider3,
-    title:'MENÚ',
-    icono: <RoomIcon/>,
-    description:'Salon 1929',
-    class:'card3',
-    button:true,
-    urlButton:'https://docs.google.com/forms/d/e/1FAIpQLSeqa0gqVPSNfvE9NDPqNOHdOiF0gY6Fas-p9gfZz9wSkkIQiw/viewform?usp=sf_link',
-    bgColor:'#d80032',
-    bgcButton:'#444242',
-    textButton:'Ver Menu'
 
   }]
 }
@@ -98,7 +86,7 @@ export const Amcecis = () => {
         <SectionEventData  data={datos}/>
 
     <Box pb={15} pt={20} > 
-    <Typography color={'#d80032'} textAlign={'center'} variant="h2" component="h2" fontWeight={'bolder'}> Próximos almuerzos</Typography>
+    <Typography color={'#d80032'} textAlign={'center'} variant="h4" component="h2" fontWeight={'bolder'}> Próximos almuerzos</Typography>
       <Image src={footerImage} className={style.footer} alt={''}style={{
         width: "100%",
         height: "100%",

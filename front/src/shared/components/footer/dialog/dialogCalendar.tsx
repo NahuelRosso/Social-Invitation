@@ -29,8 +29,11 @@ export default function DialogCalendar(props: propsDialogCalendar) {
           {"¡Agendá la fecha en tu Google Calendar!"}
         </DialogTitle>
         <Grid container justifyContent={"center"}>
+                     
           <Grid container justifyContent={"center"} item xs={12} md={6}>
+
             <IconButton href={"https://calendar.google.com/calendar/event?action=TEMPLATE&tmeid=MTAzZjR2MHA4MnRldGRrNTFlczc0NGVzYTUgbHVjYXNndXRpZXJyZXoxOTg1QG0&tmsrc=lucasgutierrez1985%40gmail.com"}>
+            MIE 15/03 12:00HS <br />
                 <EventIcon fontSize="large" />
             </IconButton>
           </Grid>

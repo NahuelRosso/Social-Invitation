@@ -36,7 +36,7 @@ export const CardItem = (props:ICard) => {
               {props.button ==true 
               ?<Box >
                 <Button 
-                sx={{backgroundColor:props.bgcButton, marginTop:'4px'}}
+                sx={{backgroundColor:props.bgcButton, marginTop:'4px',color:'#444242'}}
                   href={props.urlButton}
                   variant="contained"
                 >

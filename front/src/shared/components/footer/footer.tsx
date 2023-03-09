@@ -72,7 +72,7 @@ const items:BottomItem[] = [{
 
   return (
     <>
-     <Paper sx={{ position: 'fixed', bottom: 0, left: 0, right: 0, alignContent:'center' , opacity:"1"}} elevation={10}>
+     <Paper sx={{ position: 'fixed', bottom: 0, left: 0, right: 0, alignContent:'center' , opacity:"1",bgcolor:'#444242'}} elevation={10}>
           <BottomNavigation
             showLabels
             value={value}

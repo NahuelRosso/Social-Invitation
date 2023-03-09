@@ -25,15 +25,13 @@ export default function DialogLocation(props: propsDialogLocation) {
         aria-describedby="alert-dialog-description"
       >
         <DialogTitle id="alert-dialog-title">
-          {"Use Google's location service?"}
+          {"Salón de Fiestas y Eventos 1929, (Uruguay 478, Río Tercero, Córdoba"}
         </DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-description">
-            Let Google help apps determine location. This means sending anonymous
-            location data to Google, even when no apps are running.
-
+            Puede ver la ubicación en el mapa haciendo click
             <Button  href={"https://www.google.com.ar/maps/dir/Tu ubicación/"+props.locationAddress+"/data=!3m1!4b1!4m9!4m8!1m1!4e1!1m5!1m1!1s0x95cd68ca4f27c03d:0x9ce2d9c06d92846d!2m2!1d-64.1217734!2d-32.1597139"}>
-            Go
+            aquí
           </Button>
           
           </DialogContentText>
