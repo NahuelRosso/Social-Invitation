@@ -72,8 +72,9 @@ const items:BottomItem[] = [{
 
   return (
     <>
-     <Paper sx={{ position: 'fixed', bottom: 0, left: 0, right: 0, alignContent:'center' , opacity:"1",bgcolor:'#444242'}} elevation={10}>
-          <BottomNavigation
+     <Paper sx={{ position: 'fixed', bottom: 0, left: 0, right: 0, alignContent:'center' , opacity:"1",}} elevation={10}>
+          <BottomNavigation 
+          sx={{backgroundColor:'#dddddd'}}
             showLabels
             value={value}
             onChange={(event: any , newValue: any) => {
@@ -84,7 +85,7 @@ const items:BottomItem[] = [{
           >{
             items.map((item:BottomItem,i) => {
               if(item.show)
-                return <BottomNavigationAction key={i} label={item.label} icon={item.icon}/>
+                return <BottomNavigationAction sx={{color:'#444242'}} key={i} label={item.label} icon={item.icon}/>
             })
           }
           </BottomNavigation>
@@ -129,7 +130,7 @@ const items:BottomItem[] = [{
           setOpenUbicacion(false)
           return true;
         } }
-        locationAddress="Rio Tercero"
+        locationAddress="uruguay 478, Rio Tercero"
         />
     </>     
   );

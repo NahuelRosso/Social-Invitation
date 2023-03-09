@@ -36,11 +36,11 @@ export const SectionEventData = (props: IPropsSectionEventData) => {
    
   return (
     <Box>
-        <Grid container justifyContent="center" alignContent={'center'} textAlign={'center'}>
+        <Grid container justifyContent="center" alignContent={'center'} textAlign={'center'} bgcolor={'#eeeeee'} paddingBottom='60px' marginTop={'-5px'}>
         {props.data.tarjetas.map((item,i)=>
             {
               
-                 return   <Grid item xs={12} sm={3} md={4} alignItems='center' textAlign='center' alignContent='center' justifyContent="center" key={i}><CardItem  title={item.title} description={item.description} image={item.image} button={item.button} urlButton={item.urlButton} bgColor={item.bgColor} key={i} bgcButton={item.bgcButton} textButton={item.textButton}></CardItem></Grid>
+                 return   <Grid fontFamily={'nunito'} item xs={12} sm={3} md={4} alignItems='center' textAlign='center' alignContent='center' justifyContent="center" key={i}><CardItem  title={item.title} description={item.description} image={item.image} button={item.button} urlButton={item.urlButton} bgColor={item.bgColor} key={i} bgcButton={item.bgcButton} textButton={item.textButton}></CardItem></Grid>
         
             }
            

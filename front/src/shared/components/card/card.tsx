@@ -20,7 +20,7 @@ export interface ICard{
 export const CardItem = (props:ICard) => {
   return (
     <Box textAlign={'center'} paddingTop={10}>
-        <Card sx={{minHeight:250, maxWidth: 345,margin:'auto', alignContent:'center',textAlign: "center", bgcolor:props.bgColor}} elevation={5}>
+        <Card sx={{minHeight:300, maxWidth: 345,margin:'auto', alignContent:'center',textAlign: "center", bgcolor:props.bgColor}} elevation={5}>
             <Image
               src={props.image}
               alt=""
@@ -28,15 +28,15 @@ export const CardItem = (props:ICard) => {
             />
             <CardContent >
             {props.icono}
-              <Typography gutterBottom variant="h6" component="div" color={'white'}>
+              <Typography gutterBottom variant="h5" component="div" fontWeight={'bolder'} color={'white'}>
                 {props.title}
               </Typography>
-              <Typography color={'#dddddd'} variant="body2" >
+              <Typography color={'#dddddd'} variant="body1" >
           {props.description}              </Typography> 
               {props.button ==true 
               ?<Box >
                 <Button 
-                sx={{backgroundColor:props.bgcButton, marginTop:'4px',color:'#444242'}}
+                sx={{backgroundColor:props.bgcButton, marginTop:'20px',color:'#444242'}}
                   href={props.urlButton}
                   variant="contained"
                 >
