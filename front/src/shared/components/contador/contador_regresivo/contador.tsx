@@ -1,34 +1,11 @@
-import React, { useState, useEffect } from 'react';
 'use client'
+import { Button } from "@mui/material";
 import React, { useRef,useState, useEffect } from "react";
 
-const Counter: React.FC = () => {
-  const [time, setTime] = useState(new Date());
-
-  useEffect(() => {
-    const intervalId = setInterval(() => {
-      setTime(new Date());
-    }, 1000);
-    return () => clearInterval(intervalId);
-  }, []);
-
-  const startTime = new Date('2022-01-01T00:00:00.000Z');
-  const timeDiff = Math.abs(time.getTime() - startTime.getTime());
-  const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
-  const hours = Math.floor((timeDiff / (1000 * 60 * 60)) % 24);
-  const minutes = Math.floor((timeDiff / (1000 * 60)) % 60);
-  const seconds = Math.floor((timeDiff / 1000) % 60);
-
-  return (
-    <div>
-      <h1>Contador de tiempo:</h1>
-      <p>{days} días, {hours} horas, {minutes} minutos, {seconds} segundos</p>
-    </div>
-  );
-};
-
-export default Counter;
-const Counter: React.FC = () => {
+export interface Icountdown{
+date:string;
+}
+const Counter = (props:Icountdown) => {
     const [tiemerDay, stetimerDay] = useState (0);
     const [tiemerHours, stetimerHours] = useState (0);
     const [tiemerMinute, stetimerMinute] = useState (0);
@@ -37,7 +14,7 @@ const Counter: React.FC = () => {
     let interval = useRef();
 
     const startTime =() =>{
-        const countdownDate = new Date("2025-01-01T00:00:00.000Z").getTime();
+        const countdownDate = new Date(props.date).getTime();
         
         let interval = setInterval(()=>{
         console.log("ya esta")
@@ -69,6 +46,7 @@ const Counter: React.FC = () => {
         <div>
             <h1>Event:</h1>
             <p>
+                <Button variant="outlined" >Start</Button>
                 {tiemerDay} días {tiemerHours} : {tiemerMinute} : {tiemerSeconds} 
             </p>
         </div>
