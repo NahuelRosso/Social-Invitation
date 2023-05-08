@@ -2,7 +2,8 @@
 import styles from './page.module.css'
 
 import IFooter, { BottomItem } from "@/shared/components/footer/footer";
-import { Template1 } from '@/shared/templates/template-fiesta-15/template1/template1';
+import QuestionForm from '@/shared/components/formQuestion/form-question';
+import { List } from '@mui/material';
 import { Amcecis } from "pages/amcecis/amcecis";
 
 
@@ -10,7 +11,8 @@ export default function Home() {
   return (
     <main>
       <div >
-      <Template1/>
+      <Amcecis/>
+       <QuestionForm></QuestionForm>
       </div>
     </main>
   );
