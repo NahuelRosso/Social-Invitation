@@ -1,4 +1,4 @@
-import { Box, Button, Container, Grid, Typography } from "@mui/material";
+import { Box, Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Fab, Grid, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Portada from "../../../../../public/Recurso 2@2x.png";
@@ -12,8 +12,13 @@ import { Instagram } from "@mui/icons-material";
 import {CarruselMultiple} from "../../../components/carrusel-multiple/carruselMultiple"
 import './template1.css'
 import BasicModal from "@/shared/components/modal/modal";
+import ReactPlayer from "react-player";
+import Modal from "@/shared/components/modal/modal";
+import AddIcon from '@mui/icons-material/Add';
 export const Template1 = () => {
-  const [open, setOpen] = React.useState(true);
+  const [open, setOpen] = React.useState(false);
+  const [openModal, setOpenModal] = React.useState(true);
+  
     const calculateTimeLeft = () => {
         let year = new Date().getFullYear();
         let difference = +new Date(`06/02/${year}`) - +new Date()
@@ -54,10 +59,28 @@ export const Template1 = () => {
         return () => clearTimeout(timer);
       });
      
+      const handleCloseModal =()=>{
+        setOpenModal(false)
+        const audio =new Audio('audio/ROSALÍA - LLYLM (Official Lyric Video).mp3')
+        audio.play()
+      }
 
   return (
     
     <div style={{ backgroundColor: "#F4E0D3" }}>
+     <Dialog
+        open={openModal}
+        keepMounted
+        onClose={handleCloseModal}
+        aria-describedby="alert-dialog-slide-description"
+      >
+        <DialogTitle width={250} bgcolor={'black'} color={'white'} textAlign={'center'} className='title-modal'>{"GUADALUPE MIS 15 "}</DialogTitle>
+        <DialogContent style={{backgroundColor:'#f4e0d3'}}>
+          <DialogContentText  id="alert-dialog-slide-description" textAlign={'center'}>
+           EventUp
+          </DialogContentText>
+        </DialogContent>
+      </Dialog>
       <Box sx={{ position: "relative" }}>
         <Image
           src={Portada}
