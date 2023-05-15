@@ -9,12 +9,12 @@ import Slider3 from '../../public/SLIDERS WEB 02-01 (1).png'
 import Slider1Cel from '../../public/SLIDERS WEB_Mesa de trabajo 1.png'
 import Slider2Cel from '../../public/SLIDERS WEB-02.png'
 import Slider3Cel from '../../public/SLIDERS WEB-03.png'
-import Phone from '../../public/distefano web 02 (1).png'
-import Desktop from '../../public/distefano web (1).png'
+import Phone from '../../public/ZUCHOVICKI (2).png'
+import Desktop from '../../public/ZUCHOVICKI (1).png'
 import RoomIcon from '@mui/icons-material/Room';
 import { IData, SectionEventData } from '@/shared/components/sectionEventData/sectionEventData';
 import style from './amececis.module.css'
-import footerImage from '../../public/footer wweb (1).png'
+import footerImage from '../../public/ZUCHOVICKI (3).png'
 import Icono1 from '../../public/iconos-01.png'
 import Icono2 from '../../public/iconos-02.png'
 
@@ -36,8 +36,8 @@ const datos:IData = {
     image:Icono2,
     title:'HORARIO',
     icono: <RoomIcon/>,
-    description:'MIERCOLES 15 DE MARZO - 12hs -',
-    class:'card2',
+    description:'JUEVES 18 DE MAYO - 12hs -',
+    class:'card2', 
     button:false,
     bgColor:'#fc0131',
     bgcButton:'#444242',

@@ -1,40 +1,33 @@
-import React from "react";
+import React, { useState } from "react";
 import { IQuestion } from "../model/question";
 import { ListItems } from "../../list/list";
 import QuestionForm from "../form-question";
-
-
-const clients: IQuestion[] = [
-  {
-    id:"",
-    question:""
-  },
-  {
-    id:"",
-    question:""
-  },
-  {
-    id:"",
-    question:""
-  },
-  {
-    id:"",
-    question:""
-  },
-];
+import { ItemQuestion } from "../itemQuestion/itemQuestion";
+import { getQuestions } from "../question-service/question";
 
 
 
-export const ListClient = () => {
+export const ListQuestion = () => {
+  const[questions,setQuestion]= useState<[]>([])
+  
     const action = (item: IQuestion) => {
       console.log(item);
     };
+    
+    getQuestions().then((docSnap)=>{
+      let data:any =[]
+      docSnap.forEach((doc) => {
+       
+        data.push(doc.id);
+      });
+      setQuestion(data)
+    })
   
     return (
       <div>
         <ListItems
-          items={clients}
-          renderItem={QuestionForm}
+          items={questions}
+          renderItem={ItemQuestion}
           handleItemClick={(item: IQuestion) => {
             action(item);
           }}

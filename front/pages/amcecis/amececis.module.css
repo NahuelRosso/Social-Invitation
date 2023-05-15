@@ -1,13 +1,13 @@
 
-@media screen and (min-width: 0px) and (max-width: 400px) {
+@media screen and (min-width: 0px) and (max-width: 30em) {
     .phone{
         display: none !important;
     }
     .slider1{ display: none !important;}
  
-  }
+  } 
 
-@media only screen and (min-width : 901px) {
+@media only screen and (min-width : 30em) {
     .desktop{ display: none !important; }
 
     .slider2{ display: none !important;}
