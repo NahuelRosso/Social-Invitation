@@ -7,8 +7,7 @@ import { Slider } from '@/shared/components/slider/slider';
 import { Box, List } from '@mui/material';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { Amcecis } from "pages/amcecis/amcecis";
-import { QuestionListPage } from 'pages/questionList/questionList';
+import QuestionListPage from 'pages/questionList/questionList';
 import Slider1 from '../../public/SLIDERS WEB 02-02 (1).png'
 import Slider2 from '../../public/SLIDERS WEB 02-03 (1).png'
 import Slider3 from '../../public/SLIDERS WEB 02-01 (1).png'
