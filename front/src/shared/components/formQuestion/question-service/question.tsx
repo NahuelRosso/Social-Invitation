@@ -14,7 +14,10 @@ import {
     const colRef = collection(db, collectionQuestion);
     const docsRef = await getDocs(colRef);
   
-    docsRef.forEach((doc) => {});
+    docsRef.forEach((doc) => {
+      console.log(doc)
+    });
+
     return docsRef;
   }
   
@@ -26,6 +29,8 @@ import {
     }else{
         console.log('error')
     }
-   
   }
   
+  export function deleteQuestion(question:string){
+      deleteDoc(doc(db,collectionQuestion,question))
+  }

@@ -1,6 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700&family=Open+Sans:wght@300;400;500;600;700;800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap');
 
+:root{
+    --text-family:var(--text-family);
+}
+
 @media (max-width: 600px) {
     .header-text{
         font-size: 50px;
@@ -91,38 +95,12 @@
 .text{
     font-family: "Open Sans";
 }
-.text-regalo{
-    font-family: "Open Sans";
-}
 .number-tempo{
     text-align: center;
 }
 
-.header-text{
-    font-family: 'DM Serif Display';
-}
-.header-text-2{
-    font-family: 'DM Serif Display';
-}
-.number-tempo{
-    font-family: 'DM Serif Display';
-}
-.text-info{
-    font-family: 'DM Serif Display';
-}
-.asistenciaAcena{
-    font-family: 'DM Serif Display';
-}
-.datos{
-    font-family: 'DM Serif Display';
-}
-.text-regalo{
-    font-family: 'DM Serif Display';
-}
-.asistencia{
-    font-size: 30px;
-}
+
 .title-modal{
-    font-family: 'DM Serif Display';
+
     font-size: xx-large;
 }

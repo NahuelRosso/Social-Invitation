@@ -22,7 +22,7 @@ export const ListItems = ({ items, renderItem, handleItemClick }: IProps) => {
         {items.map((item: any, i) => {
           return (
             <>
-              <ListItem key={i} onClick={() => handleItemClick(item)} style={{backgroundColor:'yellow'}}>
+              <ListItem key={i} onClick={() => handleItemClick(item)} style={{backgroundColor:'#fc0131'}}>
                 {renderItem(item)}
               </ListItem>
               <Divider />

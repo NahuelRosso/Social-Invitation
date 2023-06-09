@@ -1,27 +1,49 @@
-import { Box, Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Fab, Grid, Typography } from "@mui/material";
+import { Box, Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Fab, Grid, Link, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
-import Image from "next/image";
-import Portada from "../../../../../public/Recurso 2@2x.png";
-import Ifisesta from "../../../../../public/Recurso 12@2x.png"; 
-import Spotify from "../../../../../public/spootify.png";
-import Idea from "../../../../../public/idea.png";
-import FondoInsta from "../../../../../public/7.jpg";
-import DressCode from "../../../../../public/dresscode.png";
-import Regalo from "../../../../../public/regalo.png";
+import Image, { StaticImageData } from "next/image";
 import { Instagram } from "@mui/icons-material";
 import {CarruselMultiple} from "../../../components/carrusel-multiple/carruselMultiple"
 import './template1.css'
 import BasicModal from "@/shared/components/modal/modal";
-import ReactPlayer from "react-player";
-import Modal from "@/shared/components/modal/modal";
-import AddIcon from '@mui/icons-material/Add';
-export const Template1 = () => {
+import IconFiesta from 'public/Icono-fiesta.png';
+import IconRegalo from 'public/Icono-regalo.png';
+import IconDressCode from 'public/Icono-dresscode.png';
+import IconDatos from 'public/Icono-datos.png';
+import IconSpotify from 'public/Icono-shopify.png';
+
+// [Carrusel1,Carrusel2,Carrusel3,Carrusel4,Carrusel5,Carrusel6,Carrusel7,Carrusel8,Carrusel9,Carrusel10]
+interface ITemplate1 {
+  colorPrimary:string;
+  colorSecundary:string;
+  tipography:string;
+  dateBirth:string;
+  music:string;
+  imageHeader:StaticImageData;
+  nameBirthdayGirl:string;
+  dayAndHour:string;
+  place:string;
+  locationOnMap:string;
+  carruselImages:StaticImageData[];
+  beforeDinnerButton:string;
+  afterDinnerButton:string;
+  hotels:string;
+  dressCode:string;
+  shopify:string;
+  imageInstagram:StaticImageData;
+  arrobaInstagram:string;
+  urlInstagram:string;
+  alias:string;
+  phone:string;
+  email:string;
+}
+
+export const Template1 = (props:ITemplate1) => {
   const [open, setOpen] = React.useState(false);
   const [openModal, setOpenModal] = React.useState(true);
   
     const calculateTimeLeft = () => {
         let year = new Date().getFullYear();
-        let difference = +new Date(`06/02/${year}`) - +new Date()
+        let difference = +new Date(`${props.dateBirth}/${year}`) - +new Date()
       
         let timeLeft = {
             days:0,
@@ -61,84 +83,86 @@ export const Template1 = () => {
      
       const handleCloseModal =()=>{
         setOpenModal(false)
-        const audio =new Audio('audio/ROSALÍA - LLYLM (Official Lyric Video).mp3')
+        const audio =new Audio(`${props.music}`)
         audio.play()
       }
 
   return (
-    
-    <div style={{ backgroundColor: "#F4E0D3" }}>
-     <Dialog
+    <>
+    <div style={{ backgroundColor: props.colorPrimary }}>
+      <Dialog
+        style={{ zIndex: 1 }}
         open={openModal}
         keepMounted
         onClose={handleCloseModal}
         aria-describedby="alert-dialog-slide-description"
       >
-        <DialogTitle width={250} bgcolor={'black'} color={'white'} textAlign={'center'} className='title-modal'>{"GUADALUPE MIS 15 "}</DialogTitle>
-        <DialogContent style={{backgroundColor:'#f4e0d3'}}>
-          <DialogContentText  id="alert-dialog-slide-description" textAlign={'center'}>
-           EventUp
+        <DialogTitle width={250} bgcolor={props.colorSecundary} color={'white'} textAlign={'center'} className='title-modal'>{`${props.nameBirthdayGirl} MIS 15`}</DialogTitle>
+        <DialogContent style={{ backgroundColor: props.colorPrimary }}>
+          <DialogContentText id="alert-dialog-slide-description" textAlign={'center'}>
+            EventUp
           </DialogContentText>
         </DialogContent>
       </Dialog>
       <Box sx={{ position: "relative" }}>
         <Image
-          src={Portada}
+          src={props.imageHeader}
           alt={"EventUp"}
           style={{ height: "70vh", width: "100%", objectFit: "cover" }}
           className="imagen-header"
         ></Image>
         <Box mt={'-45vh'} pb={'16vh'} className={'content-tempo'}>
-        <Typography
-          variant="h3"
-          component="h2"
-          color={"white"}
-          textAlign={"center"}
-          fontSize={'80px'}
-          fontWeight={900}
-          sx={{marginBottom:'-20px'}}
-          className="header-text"
-        >
-          GUADALUPE
-        </Typography>
-        <Typography
-          variant="h3"
-          component="h2"
-          color={"white"}
-          textAlign={"center"}
-          className="header-text-2"
-        >
-          15 años
-        </Typography>
+          <Typography
+            variant="h3"
+            component="h2"
+            color={"white"}
+            textAlign={"center"}
+            fontSize={'80px'}
+            fontWeight={900}
+            sx={{ marginBottom: '-20px' }}
+            className="header-text"
+            fontFamily={props.tipography}
+          >
+            {props.nameBirthdayGirl}
+          </Typography>
+          <Typography
+            variant="h3"
+            component="h2"
+            color={"white"}
+            textAlign={"center"}
+            className="header-text-2"
+            fontFamily={props.tipography}
+          >
+            15 años
+          </Typography>
         </Box>
       </Box>
-      <Box sx={{ backgroundColor: "black", textAlign: "center",p:'30px' }} className="block-2" >
+      <Box sx={{ backgroundColor:props.colorSecundary, textAlign: "center", p: '30px', mt: '1em' }} className="block-2">
         <Typography variant="h3" component="h2" fontSize={30} className="text-temporizador">
-          {timeLeft.llego==""?'FALTAN': ''}
+          {timeLeft.llego == "" ? 'FALTAN' : ''}
         </Typography>
-        <Typography variant="h1" component="h2" fontSize={70} className="number-tempo">
-            {timeLeft.llego ==''?
-            timeLeft.days+':'+timeLeft.hours+':'+timeLeft.minutes+':'+timeLeft.second
-            :timeLeft.llego
-        }
+        <Typography variant="h1" component="h2" fontSize={70} className="number-tempo" fontFamily={props.tipography}>
+          {timeLeft.llego == '' ?
+            timeLeft.days + ':' + timeLeft.hours + ':' + timeLeft.minutes + ':' + timeLeft.second
+            : timeLeft.llego}
         </Typography>
-          
+
 
       </Box>
       <Box
-        sx={{ color: "black", textAlign: "center", backgroundColor: "#f4e0d3", p:'50px' }}
+        sx={{ color: "black", textAlign: "center", backgroundColor: props.colorPrimary, p: '50px' }}
       >
-        <Typography variant="h3" component="h2"  fontFamily={"Scotch Text"} className="text-info">
+        <Typography variant="h3" component="h2" fontFamily={props.tipography} className="text-info" >
           Fiesta
         </Typography>
-        <Image src={Ifisesta} alt="" height={80}></Image>
-        <Typography variant="body1" component="h2" className="fecha-hora" > 
-          ¡Te espero el <b>Viernes 2 de junio de 21:30 a 05:00h</b>
-          <br /> paraque celebremos juntos estegran momento de mi vida!
+        <Image src={IconFiesta} alt="" height={80}></Image>
+        <Typography variant="body1" component="h2" className="fecha-hora">
+          ¡Te espero el <b>{props.dayAndHour}</b>
+          <br /> para que celebremos juntos este gran momento de mi vida!
         </Typography>
         <br />
-        <Typography variant="body1" component="h2" className="lugar"> 
-          <b>Salón Elegantes, Av. Pte. Perón 542, Río Tercero,Córdoba.</b>
+        <Typography variant="body1" component="h2" className="lugar">
+          <b>{props.place}</b>
           <br />
           clickeá en el botón de abajo y encontrá las indicaciones para llegar,
           ¡nos vemos!
@@ -148,26 +172,27 @@ export const Template1 = () => {
           variant="contained"
           className="mapa"
           sx={{
-            backgroundColor: "black",
+            backgroundColor: props.colorSecundary,
             color: "white",
             borderRadius: "20px",
             width: "30%",
-            fontWeight:900,
-            ':hover':{
-              backgroundColor:"white",
-              color:'black',
-              transitionDuration:'1s ,0.5s'
+            fontWeight: 900,
+            ':hover': {
+              backgroundColor: "white",
+              color: 'black',
+              transitionDuration: '1s ,0.5s'
             }
           }}
+          href={props.locationOnMap}
         >
           ¿COMÓ LLEGAR?
         </Button>
       </Box>
-  
-        
-        <CarruselMultiple></CarruselMultiple>
-        
-      <Box sx={{ backgroundColor: "#F4E0D3",p:'50px',pt:'100',pb:'100' }} className="content-datos">
+
+
+      <CarruselMultiple images={props.carruselImages}></CarruselMultiple>
+
+      <Box sx={{ backgroundColor: props.colorPrimary, p: '50px', pt: '100', pb: '100' }} className="content-datos">
         <Grid container>
           <Grid
             xs={6}
@@ -176,31 +201,32 @@ export const Template1 = () => {
               textAlign: "center",
               color: "black",
               borderRight: "solid black 2px",
-            }}  
+            }}
             className="content-asistencia-cena"
           >
-            <Typography variant="h3" component="h2"  fontSize={40} fontFamily={"Scotch Text"} fontWeight={600} className="asistencia astensiaAcena">
+            <Typography variant="h3" component="h2" fontSize={40}fontFamily={props.tipography}fontWeight={600} className="asistencia astensiaAcena">
               Asistencia a la cena
             </Typography>
             <Button
               variant="contained"
               sx={{
-                backgroundColor: "black",
+                backgroundColor: props.colorSecundary,
                 color: "white",
                 borderRadius: "20px",
                 width: "50%",
-                margin:1,
-                ':hover':{
-                  backgroundColor:"white",
-                  color:'black',
-                  transitionDuration:'1s ,0.5s'
+                margin: 1,
+                ':hover': {
+                  backgroundColor: "white",
+                  color: 'black',
+                  transitionDuration: '1s ,0.5s'
                 }
               }}
               className="button-asistencia"
+              href={props.beforeDinnerButton}
             >
               CONFIRMAR ASISTENCIA
             </Button>
-            <Typography variant="body1" component="h2" >
+            <Typography variant="body1" component="h2">
               Cuanta alegría me dará verte ahí.
             </Typography>
           </Grid>
@@ -214,26 +240,27 @@ export const Template1 = () => {
             }}
             className="content-asistencia-brindis"
           >
-            <Typography variant="h3" component="h2" fontSize={40} fontFamily={"Scotch Text"} fontWeight={600} className="asistencia">
+            <Typography variant="h3" component="h2" fontSize={40} fontFamily={props.tipography} fontWeight={600} className="asistencia">
               Asistencia después de cena
             </Typography>
             <Button
               variant="contained"
               sx={{
-                backgroundColor: "black",
+                backgroundColor:props.colorSecundary,
                 color: "white",
                 borderRadius: "20px",
                 width: "50%",
-                margin:1,
-                ':hover':{
-                  backgroundColor:"white",
-                  color:'black',
-                  transitionDuration:'1s ,0.5s'
+                margin: 1,
+                ':hover': {
+                  backgroundColor: "white",
+                  color: 'black',
+                  transitionDuration: '1s ,0.5s'
                 }
               }}
               className="button-asistencia"
+              href={props.afterDinnerButton}
             >
-              CONFIRMAR ASISTENCIA{" "}
+              CONFIRMAR ASISTENCIA
             </Button>
             <Typography variant="body1" component="h2" className="text">
               Cuanta alegría me dará verte ahí.
@@ -242,73 +269,72 @@ export const Template1 = () => {
         </Grid>
       </Box>
       <Box>
-        <Grid container sx={{ textAlign: "center", backgroundColor: "black",pt:'50px',pb:'50px' }}>
+        <Grid container sx={{ textAlign: "center", backgroundColor: props.colorSecundary, pt: '50px', pb: '50px' }}>
           <Grid item xs={4}>
             <Box>
               <Image
-                src={Idea}
+                src={IconDatos}
                 alt={"EventUp"}
                 style={{ width: "25%", height: "25%" }}
                 className="img-regalo"
               ></Image>
-              <Typography variant="h3" component="h2" fontFamily={'Scotch Text'}pb={2} fontSize={26} className="datos">
+              <Typography variant="h3" component="h2" fontFamily={props.tipography} pb={2} fontSize={26} className="datos">
                 Datos útiles
               </Typography>
-              <BasicModal width="80%" text={'¿DÓNDE ME PUEDO ALOJAR?'} buttonAction={open} dataTitle={"HOTELES"} dataDescription={"- Mayoral y Apart 3 hotel"} fontSize={'10px'}></BasicModal>
+              <BasicModal width="80%" text={'¿DÓNDE ME PUEDO ALOJAR?'} buttonAction={open} dataTitle={"HOTELES"} dataDescription={props.hotels} fontSize={'10px'}></BasicModal>
             </Box>
           </Grid>
           <Grid item xs={4}>
             <Box>
               <Image
-                src={DressCode}
+                src={IconDressCode}
                 alt={"EventUp"}
                 style={{ width: "25%", height: "25%" }}
                 className="img-regalo"
               ></Image>
-              <Typography variant="h3" component="h2" fontFamily={'Scotch Text'}pb={2} fontSize={26} className="datos">
+              <Typography variant="h3" component="h2" fontFamily={props.tipography} pb={2} fontSize={26} className="datos">
                 Dress code
               </Typography>
-              <Button variant="contained"  sx={{
+              <Button variant="contained" sx={{
                 backgroundColor: "white",
                 color: "black",
                 borderRadius: "20px",
                 width: "80%",
-                fontSize:'12px',
-                fontWeight:900,
-                ':hover':{
-                  backgroundColor:'#F4E0D3'
+                fontSize: '12px',
+                fontWeight: 900,
+                ':hover': {
+                  backgroundColor: props.colorPrimary
                 }
               }}
-              className="data-button">
-                ELEGANTE Y COLORIDO <br />
-                ¡EL COLOR NEGRO ES DE LA CUMPLAÑERA!
+                className="data-button">
+                {props.dressCode}
               </Button>
             </Box>
           </Grid>
           <Grid item xs={4}>
             <Box>
               <Image
-                src={Spotify}
+                src={IconSpotify}
                 alt={"EventUp"}
                 style={{ width: "25%", height: "25%" }}
                 className="img-regalo"
               ></Image>
-              <Typography variant="h3" component="h2" fontFamily={'Scotch Text'} pb={2} fontSize={26} className="datos">
+              <Typography variant="h3" component="h2" fontFamily={props.tipography} pb={2} fontSize={26} className="datos">
                 Spotify
               </Typography>
-              <Button variant="contained"  sx={{
+              <Button variant="contained" sx={{
                 backgroundColor: "white",
                 color: "black",
                 borderRadius: "20px",
                 width: "80%",
-                fontSize:'12px',
-                fontWeight:900,
-                ':hover':{
-                  backgroundColor:'#F4E0D3'
+                fontSize: '12px',
+                fontWeight: 900,
+                ':hover': {
+                  backgroundColor: props.colorPrimary
                 }
-              }} 
-              className="data-button"
-              href="https://open.spotify.com/playlist/5uK9wRDEPX7vFZbNaFQ1e6?si=hmxMASXQTrylCUmNwDmvTw&utm_source=whatsapp&nd=1">
+              }}
+                className="data-button"
+                href={props.dressCode}>
                 ¿QUÉ CANCIONES NO PUEDEN FALTAR EN LA FIESTA?{" "}
               </Button>
             </Box>
@@ -325,65 +351,73 @@ export const Template1 = () => {
           >
             {" "}
             <Image
-              src={FondoInsta}
+              src={props.imageInstagram}
               alt={"EventUp"}
-              style={{ height: "70vh", width: "100%", objectFit: "cover" }}
-            />
-            <Box marginTop={"-60vh"} pb={"0vh"} className={"insta-content"} >
-              <Instagram sx={{fontSize:'100px'}} ></Instagram>
-              <Typography variant="h3" component="h2" className="text" >
-                @GUAAADA_H
+              style={{ height: "70vh", width: "100%", objectFit: "cover" }} />
+            <Box marginTop={"-60vh"} pb={"0vh"} className={"insta-content"}>
+              <Instagram sx={{ fontSize: '100px' }}></Instagram>
+              <Typography variant="h3" component="h2" className="text">
+                {props.arrobaInstagram}
               </Typography>
               <Typography variant="h3" component="h2" fontSize={18} pb={2} className="text">
-                ¡Preparate para esta gran fiesta!<br/>
+                ¡Preparate para esta gran fiesta!<br />
                 Seguime en mi cuenta de instagram y etiquetame en tus fotos y videos.
               </Typography>
-              <Button variant="contained"  sx={{
+              <Button variant="contained" sx={{
                 backgroundColor: "white",
                 color: "black",
                 borderRadius: "20px",
                 width: "40%",
-                ':hover':{
-                  backgroundColor:"white",
-                  color:'black',
-                  transitionDuration:'1s ,0.5s'
+                ':hover': {
+                  backgroundColor: "white",
+                  color: 'black',
+                  transitionDuration: '1s ,0.5s'
                 }
-              }}  href="https://www.instagram.com/guaaada_h/">VER INSTAGRAM</Button>
+              }} href={props.urlInstagram}>VER INSTAGRAM</Button>
             </Box>
           </Grid>
         </Grid>
       </Box>
-      <Box sx={{ backgroundColor: "black", textAlign: "center",p:'50px' }} className="regalo">
+      <Box sx={{ backgroundColor: props.colorSecundary, textAlign: "center", p: '50px' }} className="regalo">
         <Image
-          src={Regalo}
+          src={IconRegalo}
           alt="EventUp"
           style={{ width: "10%", height: "10%" }}
           className="img-regalo"
         ></Image>
-        <Typography variant="h3" component="h2" fontFamily={'Scotch Text'} fontSize={40} className="text-regalo">
+        <Typography variant="h3" component="h2" fontFamily={props.tipography} fontSize={40} className="text-regalo">
           Si deseás regalarme algo podés colaborar con mis sueños y anhelos
         </Typography>
-        <Typography variant="body1" component="h2" fontSize={20} m={1} className="text-regalo"> 
+        <Typography variant="body1" component="h2" fontSize={20} m={1} className="text-regalo" fontFamily={props.tipography}>
           Te comparto mi alias para que transfieras
         </Typography>
-              <BasicModal  width="50%" text={"Transferir"} buttonAction={open} dataDescription="ALIAS:herrera.guada.885" dataTitle="MIS DATOS"></BasicModal>
+        <BasicModal width="50%" text={"Transferir"} buttonAction={open} dataDescription={props.alias} dataTitle="MIS DATOS"></BasicModal>
       </Box>
-      <Box sx={{ color: "black", textAlign: "center", pt:7 ,pb:7}} className="footer" >
-        <Typography variant="body1" component="h2" className="text-regalo">
+      <Box sx={{ color: "black", textAlign: "center", pt: 7, pb: 7 }} className="footer">
+        <Typography variant="body1" component="h2" className="text-regalo" fontFamily={props.tipography}>
           Ante cualquier consulta
         </Typography>
-        <Typography variant="h4" component="h2" margin={1} fontWeight={900} className="text-regalo">
-          +54 9 3571 457 290 <br/>
-          +54 9 3571 639 800
+        <Typography variant="h4" component="h2" margin={1} fontWeight={900} className="text-regalo" fontFamily={props.tipography}>
+          {props.phone}
         </Typography>
         <Typography variant="h6" component="h2" fontWeight={600} className="text-regalo-footer">
-          guadalupeatanasoff@gmail.com <br/>
-          atanasoffyamile@gmail.com
+          {props.email}
         </Typography>
       </Box>
-      <Box>
 
+      <Box bgcolor={'black'} p={'5px'}>
+        <Grid container>
+          <Grid item xs={4}>
+            <Typography variant='h5' component="h2" textAlign={'start'} fontSize={'12px'}><Link href="https://eventup.com.ar/" color='#ffffff'>EventUp.com.ar</Link></Typography>
+          </Grid>
+          <Grid item xs={4}>
+            <Typography variant='h6' component="h2" textAlign={'center'} fontSize={'12px'}>Derechos reservados</Typography>
+          </Grid>
+          <Grid item xs={4}>
+            <Typography variant='h6' component="h2" textAlign={'end'} fontSize={'12px'}><Link href={'https://socialup.com.ar/'}></Link> powered by Social Up</Typography>
+          </Grid>
+        </Grid>
       </Box>
-    </div>
+    </div></>
   );
 };

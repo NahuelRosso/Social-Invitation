@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import { IQuestion } from "../model/question";
 import { ListItems } from "../../list/list";
-import QuestionForm from "../form-question";
 import { ItemQuestion } from "../itemQuestion/itemQuestion";
-import { getQuestions } from "../question-service/question";
+import { deleteQuestion, getQuestions } from "../question-service/question";
 
 
 
@@ -11,7 +10,7 @@ export const ListQuestion = () => {
   const[questions,setQuestion]= useState<[]>([])
   
     const action = (item: IQuestion) => {
-      console.log(item);
+      deleteQuestion(item.question)
     };
     
     getQuestions().then((docSnap)=>{
@@ -23,13 +22,13 @@ export const ListQuestion = () => {
       setQuestion(data)
     })
   
-    return (
+    return (  
       <div>
         <ListItems
           items={questions}
           renderItem={ItemQuestion}
           handleItemClick={(item: IQuestion) => {
-            action(item);
+           action(item)
           }}
         ></ListItems>
       </div>
