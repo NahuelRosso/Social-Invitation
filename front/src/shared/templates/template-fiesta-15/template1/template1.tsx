@@ -137,9 +137,9 @@ export const Template1 = (props:ITemplate1) => {
           </Typography>
         </Box>
       </Box>
-      <Box sx={{ backgroundColor:props.colorSecundary, textAlign: "center", p: '30px', mt: '1em' }} className="block-2">
+      <Box sx={{ backgroundColor:props.colorSecundary, textAlign: "center", p: '30px', mt: '1 em' }} className="block-2">
         <Typography variant="h3" component="h2" fontSize={30} className="text-temporizador">
-          {timeLeft.llego == "" ? 'FALTAN' : ''}
+          {timeLeft.llego=''?'llego':''}
         </Typography>
         <Typography variant="h1" component="h2" fontSize={70} className="number-tempo" fontFamily={props.tipography}>
           {timeLeft.llego == '' ?
@@ -161,9 +161,7 @@ export const Template1 = (props:ITemplate1) => {
           <br /> para que celebremos juntos este gran momento de mi vida!
         </Typography>
         <br />
-        <Typography variant="body1" component="h2" className="lugar">
-          <b>{props.place}</b>
-          <br />
+        <Typography variant="body1" component="h2" className="lugar">          <br />
           clickeá en el botón de abajo y encontrá las indicaciones para llegar,
           ¡nos vemos!
         </Typography>
@@ -378,7 +376,7 @@ export const Template1 = (props:ITemplate1) => {
           </Grid>
         </Grid>
       </Box>
-      <Box sx={{ backgroundColor: props.colorSecundary, textAlign: "center", p: '50px' }} className="regalo">
+      <Box sx={{ backgroundColor: props.colorSecundary, textAlign: "center", p: '120px' }} className="regalo">
         <Image
           src={IconRegalo}
           alt="EventUp"
