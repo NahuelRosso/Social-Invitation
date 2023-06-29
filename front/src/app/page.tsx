@@ -107,7 +107,7 @@ export default function Page() {
           </DialogTitle>
           <DialogContent style={{ backgroundColor: "#f4e0d3" ,alignItems:"center",justifyContent:'center'}}>
             <Box sx={{alignItems:'center'}}>
-              <FormControl sx={{ m: 1, minWidth: "25ch" }}>
+              <FormControl sx={{ m: 1, minWidth: "40%" }}>
                 <InputLabel id="demo-simple-select-autowidth-label">
                   COLOR TARJETA
                 </InputLabel>
@@ -127,7 +127,7 @@ export default function Page() {
                   <MenuItem value={Color.Template8}>Template 8</MenuItem>
                 </Select>
               </FormControl>
-              <FormControl sx={{ m: 1, minWidth: "25ch" }}>
+              <FormControl sx={{ m: 1, minWidth: "40%" }}>
                 <InputLabel id="demo-simple-select-autowidth-label">
                   Tipografía
                 </InputLabel>
