@@ -1,5 +1,5 @@
 "use client";
-import ImageHeader from "../../public/ImageHeader.jpeg";
+import ImageHeader from "../../public/header.jpg";
 import { Template1 } from "@/shared/templates/template-fiesta-15/template1/template1";
 import Image1 from "../../public/image1.jpg";
 import Image2 from "../../public/image2.jpg";
@@ -8,7 +8,7 @@ import Image4 from "../../public/image4.jpg";
 import Image5 from "../../public/image5.jpg";
 import Image6 from "../../public/image6.jpg";
 import Image7 from "../../public/image7.jpg";
-import ImageInstagram from "../../public/fondo-instagram.jpg";
+import ImageInstagram from "../../public/instagram.jpg";
 import { MuiColorInput } from "mui-color-input";
 import {
   Dialog,
@@ -90,7 +90,7 @@ export default function Page() {
   return (
     <main>
       <div className="container">
-        <Dialog
+        {/* <Dialog
           open={openModal}
           keepMounted
           onClose={handleCloseModal}
@@ -155,32 +155,32 @@ export default function Page() {
               Esta sección
             </DialogContentText>
           </DialogContent>
-        </Dialog>
+        </Dialog> */}
         <Template1
-          colorPrimary={colorPrimary}
-          colorSecundary={colorSecundary}
-          tipography={tipography}
-          dateBirth={"12/30"}
+          colorPrimary={'#e8e8e8'}
+          colorSecundary={'#F2B7D9'}
+          tipography={"Playfair"}
+          dateBirth={"08/05"}
           music={"audio/music-fondo.mp3"}
           imageHeader={ImageHeader}
-          nameBirthdayGirl={"TU NOMBRE"}
-          dayAndHour={"Fecha, día y hora de tus 15"}
-          place={"LUGAR DEL EVENTO"}
-          locationOnMap={""}
+          nameBirthdayGirl={"SOFIA"}
+          dayAndHour={"Sábado 5 de agosto - 21:30hs"}
+          place={"Campo Romero"}
+          locationOnMap={"https://www.google.com.ar/maps/place/Campo+Romero/@-32.1873757,-64.0989851,17z/data=!3m1!4b1!4m6!3m5!1s0x95cd6f1c347f767b:0x2771a170cea7e967!8m2!3d-32.1873803!4d-64.0964102!16s%2Fg%2F11gd0k_f6d?entry=ttu"}
           carruselImages={[]}
-          beforeDinnerButton={""}
+          beforeDinnerButton={"https://docs.google.com/forms/d/e/1FAIpQLSfbN7PUugPGDDnt5B7LrIEnVuBVoidVr1wlBwlnPseMGr4ooA/viewform"}
           afterDinnerButton={""}
-          hotels={"Alojamiento cercano"}
-          dressCode={"Dress Code "}
-          shopify={"lista de shopify"}
+          hotels={"Apart tres"}
+          dressCode={'"Elegante Sport"' }
+          spotify={"https://open.spotify.com/playlist/2Ivndr7fWTtlSkSkUr4mAY?si=kEsxZJGtTeKml9gYmJJr7g"}
           imageInstagram={ImageInstagram}
-          arrobaInstagram={"@TUINSTAGRAM"}
-          urlInstagram={"instagram"}
-          alias={"tualias.para.transferir"}
-          phone={"+123-456-789-123"}
-          email={"tuemail@email.com"}
+          arrobaInstagram={"@PAPINISOFI"}
+          urlInstagram={"https://www.instagram.com/papinisofi/"}
+          alias={"LISBOA.CANELA.SOFA"}
+          phone={"+54 9 3571-417940"}
+          email={"odlerdam@gmail.com "}
         ></Template1>
-        <Box
+        {/* <Box
           sx={{
             "& > :not(style)": { m: 1 },
             position: "fixed",
@@ -196,7 +196,7 @@ export default function Page() {
           >
             <SettingsIcon />
           </Fab>
-        </Box>
+        </Box> */}
       </div>
     </main>
   );

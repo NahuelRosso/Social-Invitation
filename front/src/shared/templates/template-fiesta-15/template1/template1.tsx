@@ -28,7 +28,7 @@ interface ITemplate1 {
   afterDinnerButton:string;
   hotels:string;
   dressCode:string;
-  shopify:string;
+  spotify:string;
   imageInstagram:StaticImageData;
   arrobaInstagram:string;
   urlInstagram:string;
@@ -97,21 +97,21 @@ export const Template1 = (props:ITemplate1) => {
         onClose={handleCloseModal}
         aria-describedby="alert-dialog-slide-description"
       >
-        <DialogTitle width={250} bgcolor={props.colorSecundary} color={'white'} textAlign={'center'} className='title-modal'>{`${props.nameBirthdayGirl} MIS 15`}</DialogTitle>
+        <DialogTitle width={250} bgcolor={props.colorSecundary} color={'white'} textAlign={'center'} fontFamily={props.tipography} className='title-modal'>{`${props.nameBirthdayGirl}`} <br/>MIS 15</DialogTitle>
         <DialogContent style={{ backgroundColor: props.colorPrimary }}>
           <DialogContentText id="alert-dialog-slide-description" textAlign={'center'}>
             EventUp
           </DialogContentText>
         </DialogContent>
       </Dialog>
-      <Box sx={{ position: "relative" }}>
+      <Box sx={{ position: "relative",}}>
         <Image
           src={props.imageHeader}
           alt={"EventUp"}
-          style={{ height: "70vh", width: "100%", objectFit: "cover" }}
+          style={{ height: "70vh", width: "100%", objectFit: "cover", backgroundColor:'rgba(0,0,0,0.9)', filter:'brightness(0.7)' }}
           className="imagen-header"
         ></Image>
-        <Box mt={'-45vh'} pb={'16vh'} className={'content-tempo'}>
+        <Box mt={'-45vh'} pb={'16vh'} className={'content-tempo'} zIndex={9}  sx={{filter:'brightness(1)'}}>
           <Typography
             variant="h3"
             component="h2"
@@ -137,13 +137,13 @@ export const Template1 = (props:ITemplate1) => {
           </Typography>
         </Box>
       </Box>
-      <Box sx={{ backgroundColor:props.colorSecundary, textAlign: "center", p: '30px', mt: '1 em' }} className="block-2">
+      <Box sx={{ backgroundColor:props.colorSecundary, textAlign: "center", p: '4rem', mt: '1 em' }} className="block-2">
         <Typography variant="h3" component="h2" fontSize={30} className="text-temporizador">
-          {timeLeft.llego=''?'llego':''}
+          {timeLeft.llego==''?'FALTAN':''}
         </Typography>
         <Typography variant="h1" component="h2" fontSize={70} className="number-tempo" fontFamily={props.tipography}>
           {timeLeft.llego == '' ?
-            timeLeft.days + ':' + timeLeft.hours + ':' + timeLeft.minutes + ':' + timeLeft.second
+            (timeLeft.days + 'D : ' + timeLeft.hours + 'H : ' + timeLeft.minutes + 'M : ' + timeLeft.second + 'S')
             : timeLeft.llego}
         </Typography>
 
@@ -276,10 +276,11 @@ export const Template1 = (props:ITemplate1) => {
                 style={{ width: "25%", height: "25%" }}
                 className="img-regalo"
               ></Image>
-              <Typography variant="h3" component="h2" fontFamily={props.tipography} pb={2} fontSize={26} className="datos">
+              <Typography variant="h3" component="h2" fontFamily={props.tipography} pb={2} fontSize={26} className="datos"
+              >
                 Datos útiles
               </Typography>
-              <BasicModal width="80%" text={'¿DÓNDE ME PUEDO ALOJAR?'} buttonAction={open} dataTitle={"HOTELES"} dataDescription={props.hotels} fontSize={'10px'}></BasicModal>
+              <BasicModal  width="80%" text={'¿DÓNDE ME PUEDO ALOJAR?'} buttonAction={true} dataTitle={"HOTELES"} dataDescription={props.hotels} fontSize={'12px'} ></BasicModal>
             </Box>
           </Grid>
           <Grid item xs={4}>
@@ -300,6 +301,7 @@ export const Template1 = (props:ITemplate1) => {
                 width: "80%",
                 fontSize: '12px',
                 fontWeight: 900,
+                boxShadow: 'none',
                 ':hover': {
                   backgroundColor: props.colorPrimary
                 }
@@ -327,12 +329,13 @@ export const Template1 = (props:ITemplate1) => {
                 width: "80%",
                 fontSize: '12px',
                 fontWeight: 900,
+                boxShadow: 'none',
                 ':hover': {
                   backgroundColor: props.colorPrimary
                 }
               }}
                 className="data-button"
-                href={props.dressCode}>
+                href={props.spotify}>
                 ¿QUÉ CANCIONES NO PUEDEN FALTAR EN LA FIESTA?{" "}
               </Button>
             </Box>
@@ -351,10 +354,10 @@ export const Template1 = (props:ITemplate1) => {
             <Image
               src={props.imageInstagram}
               alt={"EventUp"}
-              style={{ height: "70vh", width: "100%", objectFit: "cover" }} />
-            <Box marginTop={"-60vh"} pb={"0vh"} className={"insta-content"}>
+              style={{ height: "105vh", width: "100%", objectFit: "cover" ,filter:'brightness(0.8)'}} />
+            <Box marginTop={"-60vh"} pb={"0vh"} className={"insta-content"} sx={{filter:'brightness(1)'}}>
               <Instagram sx={{ fontSize: '100px' }}></Instagram>
-              <Typography variant="h3" component="h2" className="text">
+              <Typography variant="h3" component="h2" className="text" fontFamily={props.tipography}>
                 {props.arrobaInstagram}
               </Typography>
               <Typography variant="h3" component="h2" fontSize={18} pb={2} className="text">
@@ -366,6 +369,7 @@ export const Template1 = (props:ITemplate1) => {
                 color: "black",
                 borderRadius: "20px",
                 width: "40%",
+                fontWeight: 900,
                 ':hover': {
                   backgroundColor: "white",
                   color: 'black',
@@ -389,7 +393,7 @@ export const Template1 = (props:ITemplate1) => {
         <Typography variant="body1" component="h2" fontSize={20} m={1} className="text-regalo" fontFamily={props.tipography}>
           Te comparto mi alias para que transfieras
         </Typography>
-        <BasicModal width="50%" text={"Transferir"} buttonAction={open} dataDescription={props.alias} dataTitle="MIS DATOS"></BasicModal>
+        <BasicModal width="50%" text={"Transferir"} buttonAction={true} dataDescription={props.alias} dataTitle="ALIAS:"></BasicModal>
       </Box>
       <Box sx={{ color: "black", textAlign: "center", pt: 7, pb: 7 }} className="footer">
         <Typography variant="body1" component="h2" className="text-regalo" fontFamily={props.tipography}>
@@ -412,7 +416,7 @@ export const Template1 = (props:ITemplate1) => {
             <Typography variant='h6' component="h2" textAlign={'center'} fontSize={'12px'}>Derechos reservados</Typography>
           </Grid>
           <Grid item xs={4}>
-            <Typography variant='h6' component="h2" textAlign={'end'} fontSize={'12px'}><Link href={'https://socialup.com.ar/'}></Link> powered by Social Up</Typography>
+            <Typography variant='h6' component="h2" textAlign={'end'} fontSize={'12px'}>powered by <Link href="https://socialup.com.ar/" color='#ffffff'> Social Up</Link></Typography>
           </Grid>
         </Grid>
       </Box>
