@@ -90,7 +90,7 @@ export default function Page() {
   return (
     <main>
       <div className="container">
-        {/* <Dialog
+        <Dialog
           open={openModal}
           keepMounted
           onClose={handleCloseModal}
@@ -155,11 +155,11 @@ export default function Page() {
               Esta sección
             </DialogContentText>
           </DialogContent>
-        </Dialog> */}
+        </Dialog>
         <Template1
-          colorPrimary={'#e8e8e8'}
-          colorSecundary={'#F2B7D9'}
-          tipography={"Playfair"}
+          colorPrimary={colorPrimary}
+          colorSecundary={colorSecundary}
+          tipography={tipography}
           dateBirth={"08/05"}
           music={"audio/music-fondo.mp3"}
           imageHeader={ImageHeader}
@@ -180,7 +180,7 @@ export default function Page() {
           phone={"+54 9 3571-417940"}
           email={"odlerdam@gmail.com "}
         ></Template1>
-        {/* <Box
+        <Box
           sx={{
             "& > :not(style)": { m: 1 },
             position: "fixed",
@@ -196,7 +196,7 @@ export default function Page() {
           >
             <SettingsIcon />
           </Fab>
-        </Box> */}
+        </Box>
       </div>
     </main>
   );

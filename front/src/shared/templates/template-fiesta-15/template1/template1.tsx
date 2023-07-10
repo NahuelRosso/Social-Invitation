@@ -364,7 +364,7 @@ export const Template1 = (props:ITemplate1) => {
                 ¡Preparate para esta gran fiesta!<br />
                 Seguime en mi cuenta de instagram y etiquetame en tus fotos y videos.
               </Typography>
-              <Button variant="contained" sx={{
+              <Button variant="contained"  sx={{
                 backgroundColor: "white",
                 color: "black",
                 borderRadius: "20px",
