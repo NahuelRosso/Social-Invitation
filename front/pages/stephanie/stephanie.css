@@ -1,0 +1,72 @@
+@font-face {
+    font-family: 'Bolle Roteid'; /* Nombre de la tipografía para usar en CSS */
+    src: url('../../public/fonts/Bolle Roteid.ttf') format('truetype'); /* Ruta de la tipografía y su formato */
+    /* O si usas WOFF: */
+    /* src: url('fonts/mi-tipografia.woff') format('woff'); */
+  }
+  @font-face {
+    font-family:'AkagiPro Light' ;
+    src: url('../../public/fonts/Akagi\ Pro\ W00\ Light.ttf');
+  }
+  @font-face {
+    font-family:'Anantha Signature' ;
+    src: url('../../public/fonts/Anantha\ Signature\ For\ Personal\ Use.ttf');
+  }
+
+  @font-face {
+    font-family:'Arbotek' ;
+    src: url('../../public/fonts/Arbotek-Thin.otf');
+
+  }
+.fondoCard{
+    background-image: url('../../public/fondoDorado.png');
+}
+.fondoCinta{
+    background-image: url('../../public/goldenFlow.png') ;
+}   
+
+.fontPrimary{
+    font-family: 'Bolle Roteid';
+    padding-top: 5%;
+}
+
+.fontSecundary{
+    font-family: 'Anantha Signature';
+}
+
+.fontCard{
+    font-family: 'AkagiPro Light';
+}
+.fontCard2{
+    font-family: 'Arbotek';
+}
+@media (max-width: 600px){
+.contentHeader{
+  height: 100%;
+  padding-top:none;
+  z-index: 200!important;
+}
+.title{
+  font-size: 3em;
+}
+.contentImg{
+  margin: auto;
+  margin-top:-10%;
+  z-index: -10!important;
+}
+.grid{
+  max-width: 100%!important;
+}
+.card{
+  height: 33vh!important;
+}
+.fondoCard{
+  width: 100%;
+  margin:0;
+  padding: 25px 0 25px 0;
+  margin-top:20px;
+}
+.containerGrid{
+  display:block;
+}
+}
